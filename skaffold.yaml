@@ -1,0 +1,17 @@
+apiVersion: skaffold/v4beta3
+kind: Config
+manifests:
+    rawYaml:
+        - ./services/infra/k8s/*
+build:
+    local:
+        push: false
+    artifacts:
+        - image: idoberkovits/auth
+          context: services/auth
+          docker:
+              dockerfile: Dockerfile
+          sync:
+              manual:
+                  - src: 'src/**/*.ts'
+                    dest: .
