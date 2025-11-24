@@ -1,0 +1,240 @@
+# ==================================
+# NODE.JS / NPM / DEPENDENCIES
+# ==================================
+node_modules/
+*/node_modules/
+/.pnp
+.pnp.js
+jspm_packages/
+
+# ==================================
+# ENVIRONMENT VARIABLES
+# ==================================
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+*/.env
+*/.env.local
+backend/.env
+backend/venv
+mobile/.env
+
+# ==================================
+# BUILD OUTPUTS
+# ==================================
+dist/
+build/
+*/dist/
+*/build/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.vite/
+
+# ==================================
+# LOGS
+# ==================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ==================================
+# TESTING & COVERAGE
+# ==================================
+coverage/
+*.lcov
+.nyc_output/
+.jest/
+test-results/
+junit.xml
+*.spec.js.snap
+tests/
+setup.py
+
+# ==================================
+# OS FILES
+# ==================================
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ==================================
+# IDE & EDITOR FILES
+# ==================================
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs (WebStorm, IntelliJ, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*.swn
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# ==================================
+# TEMPORARY FILES
+# ==================================
+*.tmp
+*.temp
+tmp/
+temp/
+.tmp/
+*.bak
+*.backup
+*.old
+
+# ==================================
+# PACKAGE MANAGER LOCK FILES
+# ==================================
+# Uncomment the ones you want to ignore
+# (Usually you SHOULD commit these for consistency)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ==================================
+# TYPESCRIPT (if added later)
+# ==================================
+*.tsbuildinfo
+next-env.d.ts
+
+# ==================================
+# LINTING & FORMATTING CACHE
+# ==================================
+.eslintcache
+.prettiercache
+.prettierignore
+.stylelintcache
+
+# ==================================
+# DEPLOYMENT PLATFORMS
+# ==================================
+# Vercel
+.vercel
+.vercel.json
+
+# Railway
+.railway/
+
+# Netlify
+.netlify/
+
+# ==================================
+# DATABASE FILES (if added later)
+# ==================================
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# ==================================
+# API KEYS & SECRETS (EXTRA SAFETY)
+# ==================================
+**/secrets.json
+**/config/secrets.*
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+credentials.json
+serviceAccountKey.json
+
+# ==================================
+# DOCKER (if added later)
+# ==================================
+.dockerignore
+docker-compose.override.yml
+Dockerfile.local
+
+# ==================================
+# MISCELLANEOUS
+# ==================================
+.sass-cache/
+connect.lock
+typings/
+.angular/
+.nuxt/
+.output/
+.turbo/
+.claude
+.kiro
+CLAUDE.md
+
+# Archive files (don't commit zips)
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Generated files
+*.generated.*
+*.min.js
+*.min.css
+
+# Large media files (if you add them)
+*.mp4
+*.mov
+*.avi
+*.mkv
