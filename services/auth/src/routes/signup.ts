@@ -1,7 +1,8 @@
 import express, { Request, Response } from 'express';
 import { body, validationResult } from 'express-validator';
 import { RequestValidationError } from '../errors/requestValidationError';
-import { DatabaseConnectionError } from '../errors/databaseConnectionError';
+import { BadRequestError } from '../errors/badRequestError';
+import { User } from '../models/User';
 
 const router = express.Router();
 
@@ -22,11 +23,17 @@ router.post(
 		}
 
 		const { email, password } = req.body;
+		const existingUser = await User.findOne({ email });
 
-		console.log('Creating a user...');
-		throw new DatabaseConnectionError();
+		if (existingUser) {
+			throw new BadRequestError('Email already in use');
+		}
 
-		res.send({});
+		const user = User.build({ email, password });
+
+		await user.save();
+
+		res.status(201).send(user);
 	},
 );
 
