@@ -5,8 +5,7 @@ import { currentUserRouter } from './routes/currentUser';
 import { signinRouter } from './routes/signin';
 import { signupRouter } from './routes/signup';
 import { signoutRouter } from './routes/signout';
-import { errorHandler } from './middlewares/errorHandler';
-import { NotFoundError } from './errors/notFoundError';
+import { NotFoundError, errorHandler } from '@idoberktickets/common';
 
 const app = express();
 
