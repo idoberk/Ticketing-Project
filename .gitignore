@@ -20,9 +20,6 @@ jspm_packages/
 .env.production.local
 */.env
 */.env.local
-backend/.env
-backend/venv
-mobile/.env
 
 # ==================================
 # BUILD OUTPUTS
@@ -221,6 +218,7 @@ typings/
 .claude
 .kiro
 CLAUDE.md
+services/common/
 
 # Archive files (don't commit zips)
 *.zip
