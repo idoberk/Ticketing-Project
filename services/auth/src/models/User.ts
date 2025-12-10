@@ -11,6 +11,7 @@ interface UserAttrs {
 interface UserDoc extends mongoose.Document {
 	email: string;
 	password: string;
+	id: string;
 }
 
 // An interface that describes the properties that a User model has
@@ -31,7 +32,7 @@ const userSchema = new mongoose.Schema(
 	},
 	{
 		toJSON: {
-			transform(doc, ret) {
+			transform(doc: UserDoc, ret: any) {
 				ret.id = ret._id;
 				delete ret._id;
 				delete ret.password;

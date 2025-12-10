@@ -7,6 +7,8 @@ import {
 	requireAuth,
 	validateRequest,
 } from '@idoberktickets/common';
+import { TicketUpdatedPublisher } from '../events/publishers/ticketUpdatedPublisher';
+import { natsWrapper } from '../natsWrapper';
 
 const router = express.Router();
 
@@ -34,6 +36,12 @@ router.put(
 		ticket.set({
 			title: req.body.title,
 			price: req.body.price,
+		});
+
+		new TicketUpdatedPublisher(natsWrapper.client).publish({
+			...ticket,
+			title: ticket.title,
+			price: ticket.price,
 		});
 
 		await ticket.save();

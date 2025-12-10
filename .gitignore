@@ -219,6 +219,7 @@ typings/
 .kiro
 CLAUDE.md
 services/common/
+nats-test/
 
 # Archive files (don't commit zips)
 *.zip
