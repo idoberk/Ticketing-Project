@@ -14,6 +14,7 @@ interface OrderDoc extends mongoose.Document {
 	status: OrderStatus;
 	expiresAt: Date;
 	ticket: TicketDoc;
+	version: number;
 	id: string;
 }
 
@@ -42,12 +43,13 @@ const orderSchema = new mongoose.Schema(
 		},
 	},
 	{
+		optimisticConcurrency: true,
+		versionKey: 'version',
 		toJSON: {
 			transform(doc: OrderDoc, ret: any) {
 				ret.id = ret._id;
 				delete ret._id;
 			},
-			versionKey: false,
 		},
 	},
 );
