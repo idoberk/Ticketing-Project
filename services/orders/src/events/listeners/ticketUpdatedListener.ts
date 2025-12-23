@@ -8,17 +8,23 @@ export class TicketUpdatedListener extends Listener<TicketUpdatedEvent> {
 	queueGroupName = QUEUE_GROUP_NAME;
 
 	async onMessage(data: TicketUpdatedEvent['data'], msg: Message) {
-		const ticket = await Ticket.findByIdAndPreVersion(data);
+		const { title, price, id, version } = data;
+
+		// Use findOneAndUpdate to update and increment version atomically
+		const ticket = await Ticket.findOneAndUpdate(
+			{
+				_id: id,
+				version: version - 1,
+			},
+			{
+				$set: { title, price },
+				$inc: { version: 1 },
+			},
+		);
 
 		if (!ticket) {
 			throw new Error('Ticket not found');
 		}
-
-		const { title, price } = data;
-
-		ticket.set({ title, price });
-
-		await ticket.save();
 
 		msg.ack();
 	}

@@ -39,3 +39,11 @@ build:
               manual:
                   - src: 'src/**/*.ts'
                     dest: .
+        - image: idoberkovits/expiration
+          context: services/expiration
+          docker:
+              dockerfile: Dockerfile
+          sync:
+              manual:
+                  - src: 'src/**/*.ts'
+                    dest: .
