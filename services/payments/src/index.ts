@@ -1,10 +1,8 @@
 import mongoose from 'mongoose';
 import { app } from './app';
 import { natsWrapper } from './natsWrapper';
-import { TicketCreatedListener } from './events/listeners/ticketCreatedListener';
-import { TicketUpdatedListener } from './events/listeners/ticketUpdatedListener';
-import { ExpirationCompleteListener } from './events/listeners/expirationCompleteListener';
-import { PaymentCreatedListener } from './events/listeners/paymentCreatedListener';
+import { OrderCreatedListener } from './events/listeners/orderCreatedListener';
+import { OrderCancelledListener } from './events/listeners/orderCancelledListener';
 
 const start = async () => {
 	if (!process.env.JWT_KEY) {
@@ -27,6 +25,10 @@ const start = async () => {
 		throw new Error('NATS_CLUSTER_ID must be defined');
 	}
 
+	if (!process.env.STRIPE_KEY) {
+		throw new Error('STRIPE_KEY must be defined');
+	}
+
 	try {
 		await natsWrapper.connect(
 			process.env.NATS_CLUSTER_ID,
@@ -42,10 +44,8 @@ const start = async () => {
 		process.on('SIGINT', () => natsWrapper.client.close());
 		process.on('SIGTERM', () => natsWrapper.client.close());
 
-		new TicketCreatedListener(natsWrapper.client).listen();
-		new TicketUpdatedListener(natsWrapper.client).listen();
-		new ExpirationCompleteListener(natsWrapper.client).listen();
-		new PaymentCreatedListener(natsWrapper.client).listen();
+		new OrderCreatedListener(natsWrapper.client).listen();
+		new OrderCancelledListener(natsWrapper.client).listen();
 
 		await mongoose.connect(process.env.MONGO_URI);
 		console.log('Connected to mongoDB');
