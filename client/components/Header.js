@@ -11,6 +11,14 @@ const Header = ({ currentUser }) => {
 			href: '/auth/signin',
 		},
 		currentUser && {
+			label: 'My Orders',
+			href: '/orders',
+		},
+		currentUser && {
+			label: 'Sell Tickets',
+			href: '/tickets/new',
+		},
+		currentUser && {
 			label: 'Sign Out',
 			href: '/auth/signout',
 		},
@@ -18,8 +26,12 @@ const Header = ({ currentUser }) => {
 		.filter((linkConfig) => linkConfig)
 		.map(({ label, href }) => {
 			return (
-				<li key={href} className='nav-item'>
-					<Link className='nav-link' href={href}>
+				<li
+					key={href}
+					className='nav-item'>
+					<Link
+						className='nav-link'
+						href={href}>
 						{label}
 					</Link>
 				</li>
@@ -27,7 +39,9 @@ const Header = ({ currentUser }) => {
 		});
 	return (
 		<nav className='navbar navbar-light bg-light'>
-			<Link className='navbar-brand' href='/'>
+			<Link
+				className='navbar-brand'
+				href='/'>
 				GitTix
 			</Link>
 
