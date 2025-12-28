@@ -3,7 +3,7 @@ import { Ticket } from '../Ticket';
 it('implements optimistic concurrency control', async () => {
 	const ticket = Ticket.build({
 		title: 'concert',
-		price: 10,
+		price: 5,
 		userId: '123',
 	});
 
