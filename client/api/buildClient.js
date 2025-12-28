@@ -4,8 +4,7 @@ const buildClient = ({ req }) => {
 	if (typeof window === 'undefined') {
 		// We are on the server, and requests should be made to the ingress-nginx namespace
 		return axios.create({
-			baseURL:
-				'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+			baseURL: 'http://ticketing-app-proj.store/',
 			headers: req.headers,
 		});
 	} else {
