@@ -3,6 +3,8 @@ kind: Config
 manifests:
     rawYaml:
         - ./services/infra/k8s/*
+        - ./services/infra/k8s-dev/*
+
 build:
     local:
         push: false
